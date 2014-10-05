@@ -1,4 +1,4 @@
-# dev
+# ydev
 
 Fast bootstraping of development evironment
 
@@ -14,13 +14,13 @@ Fast bootstraping of development evironment
 
 # Commands
 
-`dev init` - installs tools from default .devrc file
+`ydev init` - installs tools from default .devrc file
 
-`dev init other` - installs tools from other.devrc file
+`ydev init other` - installs tools from other.devrc file
 
-# .devrc
+# .ydevrc
 
-Example .devrc:
+Example .ydevrc:
 
 ```
 [active-repos] # active repositories to clone
