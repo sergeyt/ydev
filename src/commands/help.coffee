@@ -1,4 +1,4 @@
-_ = require "lodash"
+_ = require "underscore"
 
 usage = (commands) ->
   console.log "usage: dev command [options]"

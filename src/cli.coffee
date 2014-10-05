@@ -1,7 +1,7 @@
 fs = require "fs"
 path = require "path"
 nopt = require "nopt"
-_ = require "lodash"
+_ = require "underscore"
 
 # load command plugins
 commands = fs.readdirSync(path.join(__dirname, 'commands'))
