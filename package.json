@@ -1,6 +1,6 @@
 {
   "name": "dev",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Fast bootstraping of your development environment.",
   "author": "Sergey Todyshev <stodyshev@gmail.com>",
   "homepage": "https://github.com/sergeyt/dev",
