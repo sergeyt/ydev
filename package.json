@@ -20,7 +20,7 @@
   "dependencies": {
     "coffee-script": "~1.8.0",
     "nopt": "~3.0.1",
-    "git.js": "0.0.21",
+    "git.js": "0.0.22",
     "lodash": "~2.4.1"
   },
   "devDependencies": {

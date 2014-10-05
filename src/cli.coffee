@@ -4,7 +4,7 @@ nopt = require "nopt"
 _ = require "lodash"
 
 # load command plugins
-commands = fs.readdirSync(__dirname)
+commands = fs.readdirSync(path.join(__dirname, 'commands'))
   .filter (file) ->
     name = path.basename(file, '.coffee')
     switch name
@@ -13,7 +13,7 @@ commands = fs.readdirSync(__dirname)
   .map (file) ->
     name = path.basename(file, '.coffee')
     cmd = {}
-    cmd[name] = require "./#{name}"
+    cmd[name] = require "./commands/#{name}"
     cmd
 
 commands = _.extend.apply _, commands
