@@ -1,21 +1,45 @@
+fs = require "fs"
+path = require "path"
 nopt = require "nopt"
-git = require("git.js")(process.cwd())
+_ = require "lodash"
+
+# load command plugins
+commands = fs.readdirSync(__dirname)
+  .filter (file) ->
+    name = path.basename(file, '.coffee')
+    switch name
+      when 'cli' then false
+      else true
+  .map (file) ->
+    name = path.basename(file, '.coffee')
+    cmd = {}
+    cmd[name] = require "./#{name}"
+    cmd
+
+commands = _.extend.apply _, commands
+
+usage = () ->
+  commands.help([], commands)
 
 main = () ->
-  switch process.argv[1]
-    when "clone"
-      clone()
-    when "init"
-      init()
 
-clone = () ->
-  # TODO support other hosts like bitbucket.org and VCS systems like mecrurial
-  git.config.global.user.name.then (user) ->
-    repo = process.argv[2]
-    url = "https://github/#{user}/#{repo}"
-    git.clone url
+  # two first args are [nodejs, index.js]
+  name = process.argv[2]
+  unless name
+    console.log("no command")
+    usage()
+    process.exit(-1)
 
-init = () ->
-  # TODO read devrc and run commands
+  cmd = commands[name]
+  unless _.isFunction(cmd)
+    console.log("unknown command: #{name}")
+    usage()
+    process.exit(-1)
+
+  args = process.argv.slice(3)
+  # help command takes commands arg
+  return cmd(args, commands) if name == "help"
+
+  cmd(args)
 
 main()
