@@ -1,5 +1,5 @@
 # clone command
-git = require("git.js")(process.cwd())
+git = require("git.js")(process.cwd(), {verbose: true})
 
 clone = (args) ->
   # TODO support other hosts like bitbucket.org and VCS systems like mecrurial
