@@ -1,0 +1,32 @@
+{
+  "name": "dev",
+  "version": "0.0.0",
+  "description": "Fast bootstraping of your development environment.",
+  "author": "Sergey Todyshev <stodyshev@gmail.com>",
+  "homepage": "https://github.com/sergeyt/dev",
+  "license": "MIT",
+  "main": "index.js",
+  "bin": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sergeyt/dev"
+  },
+  "bugs": {
+    "url": "https://github.com/sergeyt/dev/issues"
+  },
+  "keywords": [
+    "devenv"
+  ],
+  "dependencies": {
+    "coffee-script": "~1.8.0",
+    "nopt": "~3.0.1",
+    "git.js": "0.0.21",
+    "lodash": "~2.4.1"
+  },
+  "devDependencies": {
+    "gulp": "~3.8.8"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
