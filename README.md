@@ -5,12 +5,12 @@ Fast bootstraping of development evironment
 # Targets
 - [ ] download .devrc from github repository (get username using git config)
 - [ ] Clone active repos from github/bitbucket
-- [ ] Install apm/npm/gpm packages
+- [ ] Install apm/npm/gpm/chocolatey packages
 - [ ] Install golang tools
 - [ ] Support gemsets for ruby developers
 - [ ] Support python package managers
 - [ ] Package sets
-- [ ] Dev env sets
+- [ ] Environment sets
 
 # Commands
 
