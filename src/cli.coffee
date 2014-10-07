@@ -40,6 +40,10 @@ main = () ->
   # help command takes commands arg
   return cmd(args, commands) if name == "help"
 
-  cmd(args)
+  try
+    cmd(args)
+  catch err
+    console.log err
+    process.exit(-1)
 
 main()

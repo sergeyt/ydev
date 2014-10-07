@@ -4,6 +4,7 @@ hg = require("hg.js")({verbose: true})
 _ = require("underscore")
 _.str = require("underscore.string")
 
+# TODO ask for credentials
 clone = (args) ->
   repo = args[0]
   if _.str.startsWith(repo, "bb:")
