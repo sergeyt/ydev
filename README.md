@@ -3,7 +3,7 @@
 Fast bootstraping of development evironment
 
 # Targets
-- [ ] download .devrc from github repository (get username using git config)
+- [ ] download .ydev.yml from github repository (get username using git config)
 - [ ] Clone active repos from github/bitbucket
 - [ ] Install apm/npm/gpm/chocolatey packages
 - [ ] Install golang tools
@@ -18,40 +18,38 @@ Fast bootstraping of development evironment
 
 `ydev init other` - installs tools from other.devrc file
 
-# .ydevrc
+# .ydev.yml
 
-Example .ydevrc:
+This file defines assets to be installed by ydev. Example:
 
 ```
-[active-repos] # active repositories to clone
-$GOPATH # next repos will be cloned into $GOPATH src folder
-gocheckers
-hypster
-$HOME/pets # next repos will be cloned into $HOME/pets folder
+# active repositories to clone
+active-repos:
+# next repos will be cloned into $GOPATH src folder
+  $GOPATH: [
+    gocheckers
+    hypster
+  ]
+  # next repos will be cloned into $HOME/pets folder
+  $HOME/pets: []
 
 # tools to install
-[tools]
-git
-mercurial
-atom
-golang
+tools: git mercurial atom golang
 
 # tools to install with brew
-[brew]
-gpm
+brew: gpm
 
 # npm packages to install
-[npm]
-bower gulp
-karma
+npm: bower gulp karma
 
 # apm packages to install
-[apm]
-git-plus go-plus
-script linter
-language-go
+apm: [
+  git-plus go-plus
+  script linter
+  language-go
+]
 
 # gpm packages to install
-[gpm]
+gpm: []
 
 ```
