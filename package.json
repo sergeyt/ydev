@@ -20,12 +20,13 @@
   "dependencies": {
     "async": "~0.9.0",
     "coffee-script": "~1.8.0",
+    "exequte": "0.0.4",
     "git.js": "0.0.24",
     "hg.js": "0.0.6",
+    "iswin": "0.0.2",
+    "js-yaml": "^3.2.2",
     "nopt": "~3.0.1",
     "npm": "^2.1.2",
-    "toml": "^2.0.6",
-    "tomljs": "^0.1.3",
     "underscore": "~1.7.0",
     "underscore.string": "~2.3.3",
     "userhome": "^1.0.0"

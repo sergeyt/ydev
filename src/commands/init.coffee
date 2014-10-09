@@ -1,26 +1,36 @@
 userhome = require 'userhome'
-toml = require 'tomljs'
 fs = require 'fs'
 git = require 'git.js'
 hg = require 'hg.js'
 npm = require 'npm'
+yaml = require 'js-yaml'
+exec = require 'exequte'
+iswin = require 'iswin'
+_ = require("underscore")
+_.str = require("underscore.string")
+
+load_yaml_file = (path) ->
+  s = fs.readFileSync path, 'utf8'
+  yaml.safeLoad s
 
 # init command
 init = (args) ->
-  config_path = userhome('.ydevrc')
+  config_path = userhome('.ydev.yml')
   unless fs.existsSync config_path
-    console.log "no .ydevrc file at your home directory"
+    console.log "no .ydev.yml file at your home directory"
     process.exit(-1)
 
-  console.log "loading #{config_path}"
+  config = load_yaml_file config_path
 
-  config = toml config_path
-  console.log JSON.stringify(config, null, 2)
+  # install global npm packages
+  npm_packages = config.npm || []
+  if typeof npm_packages is "string"
+    npm_packages = npm_packages.split(',')
+      .map (s) -> _.str.trim(s)
+      .filter _.identity
 
-  # install tools/packages
-  tools = config.tools || {}
-  (tools.npm || []).forEach (name) ->
-    console.log "installing #{name}"
+  npm_cmd = if iswin() then "npm.cmd" else "npm"
+  exec npm_cmd, ["install", "-g", npm_packages...], {cwd: process.cwd(), verbose: true}
 
   # clone repos
 
